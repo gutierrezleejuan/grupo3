@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Productos Agronómicos</title>
+    <style>
+        /* Estilos CSS aquí */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .subastas-menu {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            border-radius: 5px;
+            padding: 10px;
+            top: 50px;
+            left: 0;
+            z-index: 1;
+        }
+
+        .subastas-menu a {
+            color: white;
+            display: block;
+            padding: 5px 0;
+            text-align: left;
+            text-decoration: none;
+        }
+
+        .subastas-menu a:hover {
+            background-color: #555;
+        }
+
+        .subastas:hover .subastas-menu {
+            display: block;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .producto {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .producto:hover {
+            transform: translateY(-5px);
+        }
+
+        .producto img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .producto h3 {
+            margin-top: 0;
+            font-size: 1.5em;
+        }
+
+        .producto p {
+            margin-top: 10px;
+        }
+
+        .producto button {
+            background-color: #F86767;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .producto button:hover {
+            background-color: #D44343;
+        }
+
+        .subasta-form {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            margin-top: 20px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tienda de Productos Agronómicos</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li class="subastas">
+                    <a href="#">Subastas</a>
+                    <div class="subastas-menu">
+                        <a href="#" onclick="mostrarFormularioSubasta()">Subasta 1</a>
+                        <a href="#" onclick="mostrarFormularioSubasta()">Subasta 2</a>
+                        <a href="#" onclick="mostrarFormularioSubasta()">Subasta 3</a>
+                    </div>
+                </li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/29/5f/aa/295faac86c571eb485ca49ccf1a87277.jpg" alt="Papa">
+            <h3>Papa</h3>
+            <p>Descripción del producto de Papa.</p>
+            <p>Precio: $85,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src=https://i.pinimg.com/564x/44/09/38/440938ebab4b4b69c4cf54551c4ea901.jpg alt="Cebolla">
+            <h3>Cebolla</h3>
+            <p>Descripción del producto de Cebolla.</p>
+            <p>Precio: $95,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/75/96/fb/7596fbd022ad8a0039dbe8750b8cf53b.jpg" alt="Tomate">
+            <h3>Tomate</h3>
+            <p>Descripción del producto de Tomate.</p>
+            <p>Precio: $50,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/90/59/df/9059df6aaf363f69b6baa9a4fc2ae0a3.jpg" alt="Aguacate">
+            <h3>Aguacate</h3>
+            <p>Descripción del producto de Aguacate.</p>
+            <p>Precio: $75,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/00/69/87/006987b3abf29bc14acaadd08643904b.jpg" alt="Yuca">
+            <h3>Yuca</h3>
+            <p>Descripción del producto de Yuca.</p>
+            <p>Precio: $60,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/05/ab/68/05ab6899a9963606f499b21ea7a5cd95.jpg" alt="cebolla larga">
+            <h3>cebolla larga</h3>
+            <p>Descripción del producto de cebolla larga.</p>
+            <p>Precio: $70,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/84/88/4b/84884bb74fa60336e03d915f009b5c85.jpg" alt="limmom">
+            <h3>limon</h3>
+            <p>Descripción del producto de limon.</p>
+            <p>Precio: $55,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/ab/76/f2/ab76f2942f7ad97c33af84d73e47156e.jpg" alt="mora">
+            <h3>mora</h3>
+            <p>Descripción del producto de fresas.</p>
+            <p>Precio: $65,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/fe/03/60/fe03604e06a34b65ea9076d00b764e50.jpg" alt="Remolacha">
+            <h3>fresas</h3>
+            <p>Descripción del producto de fresas.</p>
+            <p>Precio: $80,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/83/ef/7d/83ef7dadc6e23739e2361b4804fd702c.jpg" alt="Zanahoria">
+            <h3>Zanahoria</h3>
+            <p>Descripción del producto de Zanahoria.</p>
+            <p>Precio: $90,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/d4/73/69/d4736916efcb847c09bd14e93ee3c64e.jpg" alt="Lechuga">
+            <h3>Lechuga</h3>
+            <p>Descripción del producto de Lechuga.</p>
+            <p>Precio: $40,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/05/d9/81/05d981addff8fbc0bb807a79b3cffae9.jpg" alt="Papa Criolla">
+            <h3>Papa Criolla</h3>
+            <p>Descripción del producto de Papa Criolla.</p>
+            <p>Precio: $55,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+        <div class="producto">
+            <img src="https://i.pinimg.com/564x/da/78/33/da7833b885956af4d9923eb97e4e09a1.jpg" alt="Calabaza">
+            <h3>Calabaza</h3>
+            <p>Descripción del producto de Calabaza.</p>
+            <p>Precio: $70,000</p>
+            <button class="agregar-carrito">Agregar al carrito</button>
+        </div>
+    </main>
+
+    <div id="subasta-form" class="subasta-form">
+        <!-- Formulario de subasta -->
+        <h2>Subasta en tiempo real</h2>
+        <div id="subasta-info"></div>
+        <form id="subasta-frm">
+            <input type="text" id="oferta" placeholder="Oferta">
+            <button type="submit">Hacer Oferta</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tienda de Productos Agronómicos. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function mostrarFormularioSubasta() {
+            document.getElementById('subasta-form').style.display = 'block';
+            // Aquí podrías iniciar la conexión a tiempo real para mostrar información de la subasta.
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
